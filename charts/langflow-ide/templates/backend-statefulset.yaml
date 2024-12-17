@@ -120,7 +120,7 @@ spec:
             - name: LF_CHART_EXTERNALDB_PASSWORD
             {{- toYaml .Values.langflow.backend.externalDatabase.password | nindent 14 }}
             {{- end }}
-            {{- if and (hasKey .Values.langflow.backend "autoLogin") (eq .Values.langflow.backend.autoLogin false) }}
+            {{- if hasKey .Values.langflow.backend "autoLogin" }}
             - name: LANGFLOW_AUTO_LOGIN
               value: "{{ .Values.langflow.backend.autoLogin | default "False" }}"
             - name: LANGFLOW_SUPERUSER
